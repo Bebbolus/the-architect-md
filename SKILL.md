@@ -1,6 +1,6 @@
 ---
 name: the-architect
-description: Universal Autonomous Context Engine and Meta-Orchestrator. Implements Fable Loop Engineering (Stage 5), prompt self-improvement, 4 core generative archetypes, and Obsidian-compatible knowledge factories.
+description: Universal Autonomous Context Engine and Meta-Orchestrator. Implements Fable Loop Engineering (Stage 5), prompt self-improvement, 4 core generative archetypes, and Obsidian-compatible knowledge factories with MOC index navigation.
 license: MIT
 ---
 
@@ -56,7 +56,7 @@ Ask the user exactly one question:
    - `0_SYSTEM/`: Global rules, orchestrator map, decision logs (`CONTEXT.md`, `deviations.md`, `learnings.md`)
    - `1_INBOX/`: Unprocessed raw inputs, incoming documents, downloads
    - `2_WORKFLOW/`: Sequential isolated stage folders with dedicated role contracts
-   - `3_KNOWLEDGE/`: Permanent Obsidian-compatible knowledge base (`drafts/` -> `concepts/`)
+   - `3_KNOWLEDGE/`: Permanent Obsidian-compatible knowledge base (`index.md`, `drafts/`, `concepts/`)
    - `tmp/`: Disposable execution sandbox (Active Oblivion)
    Would you like to customize any of these folder names or add additional dedicated folders?" (STOP)
 3. **Data Sources & Routing**: Where will initial inputs arrive from, and are there technical constraints? (STOP)
@@ -163,7 +163,7 @@ Standard proposed hierarchy (customizable during Triage State 1):
 
 ```text
 workspace/
-├── CLAUDE.md (or AGENTS.md / .dsh/config.yaml) # Runtime host pointer
+├── CLAUDE.md (or AGENTS.md / .dsh/config.yaml) # Runtime host pointer & rituals (ORIENT, PERSIST)
 ├── 0_SYSTEM/                     # System registry & orchestrator map
 │   ├── CONTEXT.md                # Central Project Map (Routing, Operatives, Rules)
 │   ├── deviations.md             # Formal log of architectural decisions
@@ -179,6 +179,7 @@ workspace/
 │       ├── input/
 │       └── output/
 ├── 3_KNOWLEDGE/                  # Permanent Obsidian-compatible Knowledge Base
+│   ├── index.md                  # Karpathy MOC: dense catalog of all concepts & wikilinks
 │   ├── drafts/                   # Uncurated or in-review notes
 │   └── concepts/                 # Validated atomic notes with YAML frontmatter
 └── tmp/                          # Ephemeral execution workspace (Active Oblivion)
@@ -200,15 +201,17 @@ All notes compiled into `3_KNOWLEDGE/` must comply with:
 2. Conceptual Atomicity: Single conceptual core per note. Never combine unrelated topics with compound titles.
 3. Definition-First: First sentence is `**[Concept]** is [precise falsifiable definition].`
 4. 1:1 Bidirectional Wikilinks: Link related concepts using `[[Atomic Note Name]]`.
-5. Dense prose hierarchy (<10% bullet points).
+5. Map of Content (MOC): Maintain `3_KNOWLEDGE/index.md` updated whenever new atomic notes are promoted, avoiding expensive directory scans.
+6. Dense prose hierarchy (<10% bullet points).
 </obsidian_standards>
 
 <rule_of_closure>
 Before declaring the factory operational, The Architect performs the Rule of Closure:
-- [ ] Host pointer (`CLAUDE.md`, `AGENTS.md`) references `0_SYSTEM/CONTEXT.md`.
+- [ ] Host pointer (`CLAUDE.md`, `AGENTS.md`) references `0_SYSTEM/CONTEXT.md` and defines ORIENT/PERSIST rituals.
 - [ ] Central `CONTEXT.md` contains Zero-Knowledge, Handoff, Routing, and Trigger sections.
 - [ ] `deviations.md` is initialized with triage decisions.
 - [ ] Every stage contract embeds clauses C1-C5 and the `<scratchpad>` reasoning tags.
+- [ ] `3_KNOWLEDGE/index.md` is initialized as the knowledge map.
 - [ ] Every output has an assigned downstream consumer.
 Nothing is declared unless it is consumed.
 </rule_of_closure>
