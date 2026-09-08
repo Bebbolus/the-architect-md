@@ -1,116 +1,89 @@
-# 🏛️ The Architect (Markdown Master Skill)
+# 🏛️ The Architect: Universal Autonomous Context Engine
 
+[![Standard: Universal Skill](https://img.shields.io/badge/Standard-Universal%20Skill-blue.svg)](https://github.com/Bebbolus/the-architect-md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Standard: Agentic Skills](https://img.shields.io/badge/Standard-Universal%20Skill-blue.svg)](https://github.com/Bebbolus/the-architect-md)
-[![Compatible: DSH · Claude Code · Cursor · Antigravity](https://img.shields.io/badge/Compatibility-Universal%20Harnesses-green.svg)](https://github.com/Bebbolus/the-architect-md)
+[![Zero-Bloat](https://img.shields.io/badge/Architecture-4%20Core%20Archetypes-green.svg)](https://github.com/Bebbolus/the-architect-md)
+[![Compatible: DSH · Claude Code · Cursor · Antigravity · Goose](https://img.shields.io/badge/Compatibility-Universal%20Harnesses-purple.svg)](https://github.com/Bebbolus/the-architect-md)
 
-The universal, platform-agnostic master skill defining **The Architect v2.0** — an autonomous context engineering engine and meta-orchestrator based on the **Model Workspace Protocol (MWP)** and the **Interpretable Context Methodology (ICM)**.
+**The Architect** is an autonomous context engine and meta-orchestrator engineered for agentic IDEs and LLM harnesses. Operating under the **Model Workspace Protocol (MWP)** and the **Interpretable Context Methodology (ICM)**, it treats the LLM as a state compiler rather than a conversational chatbot.
 
----
-
-## 💡 What is The Architect?
-
-Standard AI agents behave like conversational chatbots: they maintain sprawling chat histories, suffer from context drift, and attempt to solve complex problems in a single uncontrolled output.
-
-**The Architect** transforms any LLM into a **Senior Systems Architect**:
-- **It does not solve domain problems directly**: it designs, scaffolds, and enforces the "cognitive factory" (directory trees, explicit stage contracts, and role boundaries) that executes the work.
-- **Model Workspace Protocol (MWP)**: The agent operates as a **State Compiler**, consuming discrete input files, applying deterministic rules, and compiling verified Markdown deliverables.
-- **Zero-Token History & Active Oblivion**: Conversational history is discarded between stages. State lives strictly on disk. Heavy data transformations are executed using temporary scripts in `tmp/` that are destroyed immediately after execution.
-- **Obsidian Knowledge Factory (OKF)**: Generates self-contained, definition-first knowledge bases natively linked via `[[wikilinks]]` and formatted for graph visualization.
+Instead of polluting chat history with unbounded context, The Architect conducts an interactive triage, customizes directory topology, and compiles hyper-efficient operative sub-agents using **4 Core Generative Archetypes** and mandatory deliberation scratchpads.
 
 ---
 
-## 🧩 Why Only 6 Archetypes Instead of 45 Monolithic Prompts?
+## ⚡ Core Paradigms
 
-### The Context Bloat Problem
-If a single master skill embedded the full instructional bodies of all 45 specialized operatives, it would inject over **12,000 lines of prompt (>40,000 tokens)** into every conversation turn. This results in:
-- **Catastrophic Context Bloat**: Consumes significant context window budget before work even begins.
-- **Attention Dilution ("Lost in the Middle")**: LLMs lose adherence to core constraints when buried under giant monolithic prompts.
-- **Latency & Cost Spikes**: Every round-trip incurs large token penalties.
-
-### The Solution: Generative Archetypes + On-Demand Skills
-The Architect embeds only the **6 Generative Archetypes** and a capability contract router:
-1. **Curator (Maker)**: Encyclopedic, definition-first knowledge compilation.
-2. **Auditor (Checker)**: Adversarial premise auditing and ontological verification.
-3. **Explorer (Recon)**: Systematic multi-source harvesting and OSINT.
-4. **Synthesizer (Strategy)**: MECE and Minto pyramid strategic structuring.
-5. **Quiz Master (Didact)**: Low-level demystification and active recall.
-6. **Builder (Coder)**: Surgical code diffs, intent gates, and green tests.
-
-When specific specialized roles are needed (e.g. `bias-detector`, `threat-modeler`, `invoice-auditor`), The Architect delegates to external skills or generates a tailored stage contract using the **Fable Co-Design Loop**.
+1. **Prompt-as-Architecture**: Completely self-contained in a single Markdown file (`SKILL.md`). Zero third-party databases, zero runtime dependencies.
+2. **Interactive Triage & Topology Customization**: During State 1 of triage, The Architect asks the user explicitly how they wish to name and structure workspace folders, detailing their purpose and adapting to custom workflows.
+3. **4 Core Generative Archetypes (Anti-Context Bloat)**:
+   - **Maker (Curator)**: Definition-first extraction, MECE multi-target splitting, and atomic 1:1 Obsidian backlinks.
+   - **Checker (Auditor & Critic)**: 4-Front adversarial stress-testing (Contradictions, Hidden Assumptions, Counter-examples, Vagueness).
+   - **Recon (Explorer)**: Hypothesis-driven factual search with explicit execution traces.
+   - **Coder (Builder)**: Intent-gated surgical engineering with test-first verification.
+4. **Hyper-Efficient Sub-Agent Compilation**: Every generated sub-agent contract embeds strict negative constraints, C1–C5 operational invariant clauses, and `<scratchpad>` reasoning tags (`[THINK]`, `[OBSERVE]`, `[DECISION]`).
+5. **Obsidian Atomic Backlink Architecture**: Enforces single-concept atomic note naming, enabling native Obsidian backlinks to resolve hyper-connections without orphan nodes.
 
 ---
 
-## 🔄 The Fable Loop: Iterative Prompt & Context Engineering
+## 🚀 How to Execute
 
-The Architect does not generate static, unvetted prompts. When creating sub-agents or workflow stages, it executes a 4-stage refinement cycle:
-
-```text
-┌────────────────────────────────────────────────────────────────────────┐
-│ 1. DRAFT: Compile role specification (Identity + Task Bounds)          │
-│                                │                                       │
-│                                ▼                                       │
-│ 2. INTERNAL JUDGE: Evaluate against structural constraints:            │
-│    - Are acceptance criteria falsifiable and concrete?                 │
-│    - Are the 5 Invariant Clauses (C1-C5) explicitly embedded?          │
-│    - Is output free of conversational fluff and token bloat?           │
-│                                │                                       │
-│                    Are there ambiguities?                              │
-│                     ├── YES ──> Ask 1 clarifying question              │
-│                     │           and refine the draft                   │
-│                     └── NO  ──> Seal stage contract in CONTEXT.md      │
-└────────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🔒 The 5 Invariant Clauses (C1–C5)
-
-Every sub-agent and stage contract generated by The Architect is strictly bound by:
-- **C1 (Routing Fallback)**: Stop immediately and fall back to the project map if unplanned data is required.
-- **C2 (Handoff State Protocol)**: Consolidate state into the deliverable on completion; hydrate state solely from the brief on startup.
-- **C3 (Code-as-Action & Active Oblivion)**: Generate disposable scripts in `tmp/`, run them, and destroy them immediately.
-- **C4 (Territorial Confinement)**: Strictly respect directory boundaries; never read or write outside the task scope.
-- **C5 (Iterative Guardrails)**: Maximum 3 self-correction attempts before logging to `_errors/` and requesting human intervention.
-
----
-
-## ⚖️ Real Differences: Markdown Skill vs Claude Code vs DSH Plugin
-
-| Feature | 🏛️ Pure Markdown Skill (`the-architect-md`) | 🟣 Claude Code Skill | ⚡ DSH Cordis Plugin (`dsh-plugin-the-architect`) |
-| :--- | :--- | :--- | :--- |
-| **File Format** | Plain text `SKILL.md` (Markdown + XML + YAML) | `SKILL.md` integrated in `.claude/skills` | TypeScript / JavaScript Cordis module (`index.js` + `package.json`) |
-| **Portability** | **100% Universal**: Works in Claude, DeepSeek, ChatGPT, Cursor, Windsurf, Ollama, CLI. | Claude ecosystem (Claude Code CLI, Desktop). | Dedicated to **DeepSeek Harness (DSH)**. |
-| **Runtime Code Execution** | None: relies on the host harness's standard bash/file tools. | Executes via Claude Code slash commands and bash sandbox. | **Executes server-side JavaScript**: registers Cordis tools, hooks `agent/pre-step`, intercepts lifecycle events. |
-| **User Interface (UI)** | Plain chat markdown output. | Terminal TUI in Claude Code. | Can render web UI panels, badges, and sidebar elements in DSH. |
-| **Context Loading** | Injected upon invocation (`/the-architect`) or system prompt. | Read by Claude Code discovery provider. | Managed via `ctx.skills.registerProvider` in DSH memory registry. |
-| **Primary Purpose** | **The Mind**: Foundational rules, triage state machine, and context engineering dogmas. | Quick, interactive terminal workflow for Claude users. | **The Infrastructure Engine**: Binds the Architect's mind to DSH Docker, SearXNG, OSINT, and proxy services. |
-
----
-
-## 🚀 Installation & Usage
-
-### 1. DeepSeek Harness (DSH)
+### Option A: As an Agentic Skill (Claude Code, Antigravity, OpenCode, Goose)
+Place `SKILL.md` into your platform's native skills folder:
 ```bash
-mkdir -p ~/.dsh/skills/the-architect
-cp SKILL.md ~/.dsh/skills/the-architect/
-```
-Invoke in chat with `/the-architect`.
-
-### 2. Claude Code
-```bash
+# For Claude Code (Global)
 mkdir -p ~/.claude/skills/the-architect
-cp SKILL.md ~/.claude/skills/the-architect/
+cp SKILL.md ~/.claude/skills/the-architect/SKILL.md
+
+# For DeepSeek Harness (DSH)
+cp SKILL.md /path/to/dsh/skills/the-architect/SKILL.md
+```
+Then invoke inside your session:
+```text
+/the-architect
 ```
 
-### 3. Cursor / Windsurf
-Place `SKILL.md` into your project's `.cursor/rules/the-architect.md` or workspace rules.
-
-### 4. Direct Web LLM (ChatGPT / Claude.ai / Ollama)
-Copy the full text of `SKILL.md` into your Custom Instructions or System Prompt.
+### Option B: As a System Prompt or Initial Instruction
+Feed `SKILL.md` as the very first instruction in any clean workspace:
+```text
+Read SKILL.md and execute Phase 0 (Triage State Machine).
+```
 
 ---
 
-## 📄 License
+## 🧭 Triage & Workflow Lifecycle
 
-MIT © [Bebbolus](https://github.com/Bebbolus)
+```
+[Start] ──► State 0: Environment Reconnaissance (Greenfield vs Brownfield)
+               │
+               ▼
+            State 1: Triage Depth Selection (Fast vs Deep)
+               │
+               ├─► Question 1: Core Objective & Deliverables
+               ├─► Question 2: Directory Naming & Topology Customization
+               └─► Question 3: Data Sources & Routing Rules
+               │
+               ▼
+            Scaffolding Factory (0_SYSTEM, 1_INBOX, 2_WORKFLOW, 3_KNOWLEDGE, tmp)
+               │
+               ▼
+            Derive Operatives from 4 Archetypes (Maker, Checker, Recon, Coder)
+               │
+               ▼
+            Closing Audit (Rule of Closure) ──► Factory Operational
+```
+
+---
+
+## 🔒 The 5 Operational Clauses (C1–C5)
+
+Every sub-agent and stage contract generated by The Architect enforces:
+- **C1 (Routing Fallback)**: Halt on missing data and consult the central map (`0_SYSTEM/CONTEXT.md`).
+- **C2 (Handoff State Protocol)**: Consolidate all state into assigned deliverables. Hydrate solely from briefs.
+- **C3 (Code-as-Action & Active Oblivion)**: Run disposable scripts in `tmp/` and delete them immediately after use.
+- **C4 (Territorial Confinement)**: Strictly respect directory boundaries; no unauthorized read/write.
+- **C5 (Iterative Guardrails)**: Maximum 3 consecutive self-correction attempts before human escalation.
+
+---
+
+## 📜 License
+MIT © Bebbolus
