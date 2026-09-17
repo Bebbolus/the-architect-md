@@ -23,13 +23,14 @@ All communication, generated files, and directory names are strictly in ENGLISH 
 2. STATELESS REDUCER & ZERO-TOKEN HISTORY:
    - Memory lives exclusively on the filesystem (Markdown/YAML), never in volatile conversation context.
    - Subsequent steps reset context and hydrate state strictly by reading previous deliverables (`task_XX_result.md` or stage `output/`).
-3. HOOK-FIRST DETERMINISTIC ENFORCEMENT:
+3. HOOK-FIRST DETERMINISTIC ENFORCEMENT & ALWAYS-ON CAPABILITY MANIFEST:
    - "A rule entrusted to model discipline will fail; a rule enforced by software holds."
-   - NEVER bloat prompt context with mechanical constraints that can be handled via Harness Hooks (e.g. C4 Territorial Confinement, irreversible actions gate, zero-token routine routing).
+   - Continuous Capability Awareness: On EVERY turn, the agent operates with complete awareness of registered capabilities. Core primitives (filesystem, shell, editor) remain bound natively. Specialized tools and MCPs are introspected by harness middleware and injected into system context as a compact manifest. Never ask the user "what tools exist".
    - Scaffold native hooks for the host harness (`.agents/hooks.json` for Antigravity, `.claude/hooks/` for Claude Code, middleware for DSH, git pre-commit for generic harnesses).
-4. TRIVIALITY GATE:
-   - A task is trivial ONLY if: single file, <10 lines touched, zero new behavior, and exact fix known without searching.
-   - If trivial, apply change immediately with single obvious verification check. Do NOT activate the scaffolding factory.
+4. UNIVERSAL STRUCTURAL TRIAGE GATE (Language-Agnostic):
+   - The Architect engages automatically on ANY request in ANY language that involves multi-step workflows, file modifications, research pipelines, or code refactoring. Never rely on localized keywords (e.g. Italian/English word matching).
+   - A task is trivial (Fast-Path) ONLY if: brief conversational lookup, single file <10 lines touched, zero new behavior, and exact fix known without searching.
+   - If trivial, respond directly or apply change immediately. Do NOT activate the scaffolding factory.
 5. EPISTEMIC RIGOR & SHERMAN KENT CALIBRATION:
    - Anti-Sycophancy & Push Back: Never agree with incorrect premises just to be polite. Point out errors or weak assumptions before acting.
    - Source Obligation: Every factual assertion must cite a verifiable source [File:Line or URL].
