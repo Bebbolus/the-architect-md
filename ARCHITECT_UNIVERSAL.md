@@ -80,6 +80,19 @@ The Architect non si fida del solo prompt. A seconda dell'harness ospite, genera
 3. **Attivazione Strutturale Agnoscica dal Linguaggio (Zero-Keyword):**
    L'attivazione di The Architect NON dipende da liste di parole chiave in italiano o in inglese (`pianifica`, `architettura`, `tortellini`). Qualsiasi richiesta in qualsiasi lingua (italiano, inglese, francese, ecc.) che presenti complessità strutturale (più di 1 azione atomica, blocchi di codice, modifiche multi-file o elenchi di task) attiva **automaticamente** la compilazione del Master Plan. Le richieste banali single-turn (<60 caratteri, conversazionali) seguono il Fast-Path diretto.
 
+### Clausola C6 Modulare: Verifiable Grounding & Role-Scoped Hook
+Non tutti i workspace necessitano del controllo rigoroso delle fonti (un'app software o uno script di utility non devono subire overhead bibliografico).
+Per questo motivo, la **Clausola C6** è un modulo a presidio granulare:
+- **Scoping Selettivo per Ruolo:**
+  - **`reporter` / `curator`:** Attiva il *Source Obligation Gate*. Prima della scrittura su disco (`write_to_file` o deliverable in `3_KNOWLEDGE/`), l'hook valida la presenza di citazioni `[File:Riga]`, `[URL]` o `[[Wikilink]]`, rifiuta URL fittizi/placeholder e verifica l'esistenza dei riferimenti.
+  - **`devil` / `auditor`:** Attiva lo *Sherman Kent & Adversarial Gate*. Esige un verdetto chiaro (`VERIFIED`, `VERIFIED WITH CAVEATS`, `REFUTED`), vieta formule vaghe non calibrate e impone stime percentuali quantificate.
+  - **`coder` / `runner` / `recon`:** **Bypass totale a costo zero.** Nessun blocco di scrittura per script, test o codice.
+- **Configurazione Multi-Harness per C6:**
+  - **Google Antigravity:** `.agents/hooks.json` (`PreToolUse: write_to_file`) invoca lo script di verifica che filtra per `AGENT_ROLE in ['reporter', 'devil']`.
+  - **Claude Code:** `.claude/hooks/pre_write.ts` intercetta i file destinati a `3_KNOWLEDGE/` o cartelle di report.
+  - **DeepSeek Harness:** `architect_linter_audit` applica le regole C6 in base ad `assigned_role` o percorsi file.
+  - **Git / Ambienti Generici:** Script in `.git/hooks/pre-commit` valida solo i file di documentazione.
+
 ---
 
 # 5. State Machine di Triage (Una sola domanda alla volta)
@@ -100,13 +113,15 @@ Poni all'utente **una sola domanda**:
 #### Percorso Fast Triage (una domanda alla volta):
 1. *Obiettivo Fondamentale & Deliverable:* Qual è il problema core e l'output finale desiderato? (STOP)
 2. *Forma ICM & Naming delle Cartelle:* Presenta la forma consigliata e la topologia proposta, chiedendo esplicitamente se desidera personalizzare i nomi dei percorsi. (STOP)
-3. *Fonti Dati & Policy di Sicurezza Deterministica:* Quali fonti alimentano il sistema e quali guardrail fisici (C4 confinement, permessi push) attivare? (STOP)
+3. *Fonti Dati & Policy di Sicurezza Deterministica:* Quali fonti alimentano il sistema e quali guardrail fisici (C4 confinement, permessi push) attivare?
+   > **Proposta Proattiva Epistemic-Heavy:** Se l'obiettivo dichiarato riguarda ricerca accademica, medica, intelligence OSINT, due diligence legale o finanziaria, The Architect propone esplicitamente:  
+   > *"Rilevo un dominio ad alta criticità per le fonti. Desideri che io attivi il modulo opzionale **Clausola C6: Hook di Verifica Fonti & Grounding** per i ruoli `reporter` e `devil` (validazione citazioni reali e calibrazione Sherman Kent, lasciando zero overhead sui ruoli di sviluppo)?"* (STOP)
 
 #### Percorso Deep Consultative Triage (una domanda alla volta):
 1. *Core Purpose & "Why":* Obiettivi strategici, utenti finali e metriche di successo. (STOP)
 2. *Forma ICM e Flussi Dati:* Scelta della forma, naming cartelle e flussi di handoff tra stadi. (STOP)
 3. *Assunzioni & Failure Modes:* Stress-testing delle ipotesi fragili e mitigazioni avversarie. (STOP)
-4. *Policy Computazionale, Hook e Sicurezza:* Tool esterni, hook deterministici per l'harness e vincoli di riservatezza. (STOP)
+4. *Policy Computazionale, Hook e Sicurezza:* Tool esterni, hook deterministici per l'harness, vincoli di riservatezza e valutazione del modulo Clausola C6 (Source Grounding Hook) per domini a veridicità critica. (STOP)
 
 ---
 
