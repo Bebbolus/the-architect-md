@@ -93,6 +93,23 @@ Per questo motivo, la **Clausola C6** è un modulo a presidio granulare:
   - **DeepSeek Harness:** `architect_linter_audit` applica le regole C6 in base ad `assigned_role` o percorsi file.
   - **Git / Ambienti Generici:** Script in `.git/hooks/pre-commit` valida solo i file di documentazione.
 
+### I 4 Vincoli Negativi Deterministici (Surgical & Anti-Slop Gate)
+Invece di limitarsi a istruzioni generative positive, The Architect presidia il ciclo di vita con 4 vincoli negativi software:
+1. **No Over-Engineering:** Vietato aggiungere nuove librerie/package esterni o astrazioni complesse per compiti atomici senza approvazione esplicita.
+2. **No Assumptions (Ambiguity Interceptor):** Quando un requisito, parametro o percorso è incerto, vietato tirare a indovinare: obbligo di interruzione con richiesta di chiarimento (`force_ask`) o ispezione preliminare su disco.
+3. **No Pointless Changes (Surgical Diffs):** Preservazione assoluta del codice circostante. Vietato riformattare funzioni non impattate, alterare commenti esistenti o allargare il diff oltre la minima modifica necessaria.
+4. **Mandatory Double-Check (Deliverable Gate):** Vietato transitare un task a `COMPLETED` senza aver verificato fisicamente che il deliverable esista su disco, sia non-vuoto e abbia superato i test/linter con exit code 0.
+
+### Architettura di Memoria & Apprendimento (Tripartite Memory Model)
+The Architect non si affida alla memoria volatile della chat, ma implementa tre layer cognitivi:
+1. **Memoria di Lavoro / Episodica (Stateless Reducer):** Artefatti di passaggio (`.dsh/tasks/task_XX_result.md` o `output/`), letti ad ogni inizio task per azzerare il context bloat.
+2. **Memoria Topologica & Retrospettiva (In-Workspace):**
+   - `0_SYSTEM/deviations.md`: Registro permanente dei tradeoff tecnici e delle deviazioni motivate dal piano iniziale.
+   - `0_SYSTEM/learnings.md`: Retrospettiva post-task con lezioni apprese, correzioni umane e pattern di errore superati.
+   - `3_KNOWLEDGE/index.md`: Map of Content (MOC) e grafo concettuale consultabile senza scansioni ricorsive.
+3. **Memoria Semantica Persistente Cross-Session (Deep Memory Integration):**
+   - Nei runtime dotati di plugin vettoriale/SQLite (come `dsh-plugin-deep-memory` con `memory_search` e `memory_write`): The Architect indicizza a lungo termine preferenze, regole e lezioni apprese, richiamandole semanticamente all'inizio di nuove sessioni o progetti affini.
+
 ---
 
 # 5. State Machine di Triage (Una sola domanda alla volta)

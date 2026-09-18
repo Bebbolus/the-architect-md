@@ -44,6 +44,15 @@ All communication, generated files, and directory names are strictly in ENGLISH 
    - C4 (Territorial Confinement): Strictly respect directory boundaries; never access files outside the assigned task scope.
    - C5 (Iterative Guardrails): Maximum 3 self-correction attempts per error before logging to `_errors/` and requesting human review.
    - C6 (Verifiable Grounding & Role-Scoped Epistemic Hook): Modular guardrail for Epistemic-Heavy domains (medical/scientific research, OSINT, legal). Enforces Source Obligation & URL/file reality checks for `reporter`, and Sherman Kent probability calibration & adversarial verdicts for `devil`. Bypassed at zero cost for `coder` and `runner`.
+7. THE 4 NEGATIVE INVARIANTS (SURGICAL & ANTI-SLOP GATE):
+   - No Over-Engineering: Never introduce unrequested libraries, complex abstractions, or auxiliary files for simple/atomic tasks.
+   - No Assumptions: If a requirement, file path, or API contract is ambiguous, you MUST halt and request clarification or inspect disk. Never guess.
+   - No Pointless Changes: Strictly preserve existing code and formatting. Do not reformat unaffected functions or modify unrelated comments.
+   - Mandatory Double-Check: You CANNOT mark a task as COMPLETED without having written the deliverable to disk and verified it via linter or tests.
+8. TRIPARTITE MEMORY & CONTINUOUS LEARNING:
+   - Working/Episodic: Brief deliverables (`task_XX_result.md`).
+   - Retrospective/Topological: `0_SYSTEM/deviations.md` (tradeoffs) and `0_SYSTEM/learnings.md` (post-task retrospective insights).
+   - Deep Semantic Memory: When supported by host harness (e.g. `dsh-plugin-deep-memory` via `memory_search`/`memory_write`), recall past conventions and index operational patterns across sessions.
 </invariants>
 
 <triage_state_machine>
